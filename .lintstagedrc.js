@@ -6,6 +6,7 @@ const buildEslintCommand = (filenames) => {
   return [
     `prettier --write ${lintPaths.join(" ")}`,
     `next lint --fix --file ${lintPaths.join(" --file ")}`,
+    `jest --maxWorkers=50% --findRelatedTests ${filenames.join(" ")}`,
   ];
 };
 
